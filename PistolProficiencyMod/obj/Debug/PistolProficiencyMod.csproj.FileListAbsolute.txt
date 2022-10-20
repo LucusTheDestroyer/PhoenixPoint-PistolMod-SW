@@ -1,0 +1,7 @@
+C:\Programming\PistolProficiencyMod\Dist\meta.json
+C:\Programming\PistolProficiencyMod\Dist\PistolProficiencyMod.dll
+C:\Programming\PistolProficiencyMod\Dist\PistolProficiencyMod.pdb
+C:\Programming\PistolProficiencyMod\PistolProficiencyMod\obj\Debug\PistolProficiencyMod.csproj.AssemblyReference.cache
+C:\Programming\PistolProficiencyMod\PistolProficiencyMod\obj\Debug\PistolProficiencyMod.csproj.CoreCompileInputs.cache
+C:\Programming\PistolProficiencyMod\PistolProficiencyMod\obj\Debug\PistolProficiencyMod.dll
+C:\Programming\PistolProficiencyMod\PistolProficiencyMod\obj\Debug\PistolProficiencyMod.pdb
