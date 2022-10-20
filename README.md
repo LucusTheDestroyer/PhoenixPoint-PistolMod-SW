@@ -6,7 +6,7 @@ Are you tired of your soldiers being rendered practically useless by a disabled 
 ### What this mod does:
 - Provides all classes with Handgun proficiency,
 - Adjusts the Geoscape inventory UI to show Handguns with all class filters,
-- Provides the configurable option to give additional accuracy and damage to Snipers and Berserkers respectively (i.e. Snipers gain bonus accuracy and Berserkers gain bonus damage).
+- Provides the configurable option to give additional accuracy and damage to Snipers and Berserkers respectively (i.e. Snipers gain bonus accuracy and Berserkers gain bonus damage),
 - (Warning) Since other factions also benefit from these changes, it provides a slight buff to Synedrion soldiers equipped with the Hera NP-1.
 
 This mod does **not** influence the ability to roll Handgun related perks (such as Self Defence Specialist) in vanilla or otherwise.
