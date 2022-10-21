@@ -33,9 +33,10 @@ namespace PistolProficiencyMod
 		    };
 
 			// Additional Def files that are needed for ModMain:
-			enum Extras { PistolItem, SniperTag, BerserkerTag, AllClasses }
+			enum Extras { PistolItem, Tormentor, SniperTag, BerserkerTag, AllClasses }
 			Dictionary< Extras, BaseDef> UsefulDefs = new Dictionary<Extras, BaseDef> {
 				{Extras.PistolItem, Repo.GetDef("7a8a0a76-deb6-c004-3b5b-712eae0ad4a5")}, //HandgunItem_TagDef
+				{Extras.Tormentor, Repo.GetDef("7fdd9090-5f6f-a114-1b96-058537bce8bd")}, //KS_Tormentor_WeaponDef
 				{Extras.SniperTag, Repo.GetDef("5ea5ff74-8494-4554-6a31-73bc06dc8fab")}, // Sniper_ClassTagDef
 				{Extras.BerserkerTag, Repo.GetDef("ee4013e3-d258-9124-2899-5c5a9ad8e51d")}, // Berserker_ClassTagDef
 				{Extras.AllClasses, Repo.GetDef("ad38f75d-7419-ab84-48ed-7a93631fbaf8")} // AllClasses_ClassTagDef
@@ -96,12 +97,19 @@ namespace PistolProficiencyMod
 						break;
 				} 
 			}
-			// This part is to ensure that Pistols show up in every Class' equipment inventory by adding AllClasses tag to Handgun items.
+			// This part is to ensure that Pistols & Ammunition show up in every Class' equipment inventory by adding AllClasses tag to Handgun items.
 			foreach (WeaponDef weapon in Repo.GetAllDefs<WeaponDef>().Where(w => w.Tags.Contains((GameTagDef)UsefulDefs[Extras.PistolItem]))) {
 				if (weapon.Tags.Contains((GameTagDef)UsefulDefs[Extras.SniperTag])) {
 					weapon.Tags.Remove((GameTagDef)UsefulDefs[Extras.SniperTag]);
 					weapon.Tags.Remove((GameTagDef)UsefulDefs[Extras.BerserkerTag]);
 					weapon.Tags.Add((GameTagDef)UsefulDefs[Extras.AllClasses]);
+					Logger.LogInfo($"{weapon.name} updated");
+					if (weapon != (WeaponDef)UsefulDefs[Extras.Tormentor]) {
+						weapon.CompatibleAmmunition[0].Tags.Remove((GameTagDef)UsefulDefs[Extras.SniperTag]);
+						weapon.CompatibleAmmunition[0].Tags.Remove((GameTagDef)UsefulDefs[Extras.BerserkerTag]);
+						weapon.CompatibleAmmunition[0].Tags.Add((GameTagDef)UsefulDefs[Extras.AllClasses]);
+						Logger.LogInfo($"{weapon.CompatibleAmmunition[0].name} updated");
+					}
 				}
 			}	
 			Logger.LogInfo($"PistolProficiencyMod successfully configured");
@@ -131,12 +139,19 @@ namespace PistolProficiencyMod
 						break;
 				}
 			}
-			// Undo changes to visible inventory weapons;
+			// Undo changes to visible inventory weapons & ammunition;
 			foreach (WeaponDef weapon in Repo.GetAllDefs<WeaponDef>().Where(w => w.Tags.Contains((GameTagDef)UsefulDefs[Extras.PistolItem]))) {
 				if (weapon.Tags.Contains((GameTagDef)UsefulDefs[Extras.AllClasses])) {
 					weapon.Tags.Remove((GameTagDef)UsefulDefs[Extras.AllClasses]);
     				weapon.Tags.Add((GameTagDef)UsefulDefs[Extras.SniperTag]); 
-    				weapon.Tags.Add((GameTagDef)UsefulDefs[Extras.BerserkerTag]); 
+    				weapon.Tags.Add((GameTagDef)UsefulDefs[Extras.BerserkerTag]);
+					Logger.LogInfo($"Changes to {weapon.name} reverted");
+					if (weapon != (WeaponDef)UsefulDefs[Extras.Tormentor]) {
+						weapon.CompatibleAmmunition[0].Tags.Remove((GameTagDef)UsefulDefs[Extras.AllClasses]);
+						weapon.CompatibleAmmunition[0].Tags.Add((GameTagDef)UsefulDefs[Extras.SniperTag]);
+						weapon.CompatibleAmmunition[0].Tags.Add((GameTagDef)UsefulDefs[Extras.BerserkerTag]);
+						Logger.LogInfo($"Changes to {weapon.CompatibleAmmunition[0].name} reverted");
+					}
 				}
 			}
 			Logger.LogInfo("Mod Disabled");	
@@ -145,6 +160,7 @@ namespace PistolProficiencyMod
 		/// Callback for when any property from mod's config is changed.
 		public override void OnConfigChanged() {
 			/// Config is accessible at any time.
+			// Record when config is changed, but we'll update changes when the user loads a save instead:
 			Logger.LogInfo($"Config Changed");
 		}
 

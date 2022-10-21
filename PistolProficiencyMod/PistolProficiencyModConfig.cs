@@ -8,7 +8,7 @@ namespace PistolProficiencyMod
 	/// Config is serialized on disk as json.
 	public class PistolProficiencyModConfig : ModConfig
 	{		
-		[ConfigField(text: "% Compensation Multiplier", description: "Adjust the bonus percentage Pistol accuracy/damage given to the Sniper/Berserker (Default: 20%)")]
+		[ConfigField(text: "% Bonus Proficiency", description: "Adjust the bonus percentage Pistol accuracy/damage given to the Sniper/Berserker (Default: 20%)")]
 		public int Compensation = 20; // 20% is the default multiplier
 	}
 }

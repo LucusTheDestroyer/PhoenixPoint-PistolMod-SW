@@ -7,7 +7,7 @@
       "Value": "Lucus"
     }
   ],
-  "Version": "1.0",
+  "Version": "1.1",
   "Name": [
     {
       "Key": "English",
@@ -17,7 +17,7 @@
   "Description": [
     {
       "Key": "English",
-      "Value": "Grants all classes pistol proficiency by default.\n\nA % Compensation Multiplier is added as a configurable variable, allowing users to provide bonus proficiency to the Sniper and Berserker.\n\nShould be widely compatible with other mods unless they completely overwrite Class Proficiency or Inventory UI."
+      "Value": "Grants all classes pistol proficiency by default.\n\nA '% Bonus Proficiency' is added as a configurable variable, allowing users to provide bonus stats to the Sniper and Berserker.\n\nShould be widely compatible with other mods unless they completely overwrite Class Proficiency or Inventory UI."
     }
   ],
   "Dependencies": []
