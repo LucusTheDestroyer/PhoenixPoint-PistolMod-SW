@@ -29,7 +29,7 @@ namespace PistolProficiencyMod {
                 Sprite NewSprite = ((PassiveModifierAbilityDef)PistolProficiencyModMain.Repo.GetDef("5d26564f-d648-3094-ca84-1c12fa6702fc")).ViewElementDef.LargeIcon;
                 BonusPistolDamage.ViewElementDef.LargeIcon = NewSprite;
                 BonusPistolDamage.ViewElementDef.SmallIcon = NewSprite;
-                BonusPistolDamage.ViewElementDef.DisplayName1 = new LocalizedTextBind("Bonus Handgun Proficiency: Damage");
+                BonusPistolDamage.ViewElementDef.DisplayName1 = new LocalizedTextBind("Bonus Handgun Proficiency: Damage", true);
             }
             return BonusPistolDamage;
         }
@@ -51,7 +51,7 @@ namespace PistolProficiencyMod {
                 BonusPistolAccuracy.CharacterProgressionData.SkillPointCost = 0;
 
                 //Change UI data: Sprite doesn't need editing since it will be the same as the "HandgunsTalent" that we cloned for the perk
-                BonusPistolAccuracy.ViewElementDef.DisplayName1 = new LocalizedTextBind("Bonus Handgun Proficiency: Accuracy");
+                BonusPistolAccuracy.ViewElementDef.DisplayName1 = new LocalizedTextBind("Bonus Handgun Proficiency: Accuracy", true);
             }
             return BonusPistolAccuracy;
         }
