@@ -78,15 +78,15 @@ namespace PistolProficiencyMod
 						//Get new perk from PistolProficiencyModBonusAbilities.cs
 						PassiveModifierAbilityDef AccuracyPerk = BonusPistolPerks.Get_BonusPistolAccuracyPerk();
 						// Apply config settings:
-						AccuracyPerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.Compensation/100));
-						AccuracyPerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.Compensation}% Accuracy", true);
+						AccuracyPerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.SniperBonus/100));
+						AccuracyPerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.SniperBonus}% Accuracy", true);
 						MyActor.AbilityDefs = MyActor.AbilityDefs.AddToArray(AccuracyPerk);
 						Logger.LogInfo($"Sniper Class Updated");
 						break;
 					case SoldierClasses.Berserker: // Berserker deals extra damage;
 						PassiveModifierAbilityDef DamagePerk = BonusPistolPerks.Get_BonusPistolDamagePerk();
-						DamagePerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.Compensation/100));
-						DamagePerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.Compensation}% Damage", true);
+						DamagePerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.BerserkerBonus/100));
+						DamagePerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.BerserkerBonus}% Damage", true);
 						MyActor.AbilityDefs = MyActor.AbilityDefs.AddToArray(DamagePerk);
 						Logger.LogInfo($"Berserker Class Updated");
 						break;
@@ -171,12 +171,12 @@ namespace PistolProficiencyMod
 				Logger.LogInfo("Exiting Menu");
 				// Get and adjust Accuracy perk
 				PassiveModifierAbilityDef AccuracyPerk = BonusPistolPerks.Get_BonusPistolAccuracyPerk();
-				AccuracyPerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.Compensation/100));
-				AccuracyPerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.Compensation}% Accuracy", true);
+				AccuracyPerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.SniperBonus/100));
+				AccuracyPerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.SniperBonus}% Accuracy", true);
 				// Repeat for Damage perk
 				PassiveModifierAbilityDef DamagePerk = BonusPistolPerks.Get_BonusPistolDamagePerk();
-				DamagePerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.Compensation/100));
-				DamagePerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.Compensation}% Damage", true);
+				DamagePerk.ItemTagStatModifications[0].EquipmentStatModification.Value = (1+((float)Config.BerserkerBonus/100));
+				DamagePerk.ViewElementDef.Description = new LocalizedTextBind($"Handgun attacks gain {Config.BerserkerBonus}% Damage", true);
 
 				Logger.LogInfo("Abilities Updated");
 			} 
