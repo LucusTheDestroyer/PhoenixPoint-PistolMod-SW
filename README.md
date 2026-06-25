@@ -1,4 +1,4 @@
-# Phoenix Point Pistol Proficiency Mod (Steam Workshop)
+# Phoenix Point Pistol Proficiency Mod ([Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2877557663))
 
 ### Introduction
 Are you tired of your soldiers being rendered practically useless by a disabled arm? Have you wondered how they ever learnt to fire a rifle when they can't even shoot straight with a Pistol? Well, look no further: Your soldiers have just come back from boot camp and they *finally* know how to use a Pistol!
